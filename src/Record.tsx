@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import names from './names.json';
 
-let showNext = false;
 
 const Record = () => {
     const { name, scene } = useParams();
     const [audioChunks, setAudioChunks] = useState<Blob[]>([]);
+    const [showNext, setShowNext] = useState(false);
     const [isRecording, setIsRecording] = useState(false);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioUrlRef = useRef<string | null>(null);  
@@ -84,7 +84,7 @@ const Record = () => {
     };
 
     const saveRecording = () => {
-        showNext = true;
+        setShowNext(true);
         if (audioChunks.length === 0) {
             alert('No recording to save. Record first.');
             return;
@@ -119,9 +119,12 @@ const Record = () => {
             <button id="redoButton" onClick={redoRecording} disabled={isRecording}>Redo</button>
             <button id="saveButton" onClick={saveRecording} disabled={isRecording}>Save</button>
             <button id="stopButton" onClick={stopRecording} disabled={!isRecording}>Stop</button>
-            {showNext ? (
-                <Link to={"/"}>Select Scene</Link>
-                ) : <Link to={`/${name}`}>Select Scene</Link>}
+            <div></div>
+            {showNext && (
+                <Link to={`/${name}`}>Select Scene</Link>
+            )}
+
+
         </div>
     );
 };
