@@ -63,19 +63,14 @@ const Record = () => {
     };
 
     function formatDate(milliseconds : number) {
-        // Create a new Date object using the milliseconds
-        const date = new Date(milliseconds);
-      
-        // Extract year, month, day, hours, minutes, and seconds
+        const date = new Date(milliseconds);      
         const year = date.getUTCFullYear();
-        // Pad the month and day with leading zeros if necessary. getUTCMonth() returns 0-11, so add 1 for the correct month.
         const month = String(date.getUTCMonth() + 1).padStart(2, '0');
         const day = String(date.getUTCDate()).padStart(2, '0');
         const hours = String(date.getUTCHours()).padStart(2, '0');
         const minutes = String(date.getUTCMinutes()).padStart(2, '0');
         const seconds = String(date.getUTCSeconds()).padStart(2, '0');
-      
-        // Format the string
+
         return `${year}-${month}-${day}-${hours}:${minutes}:${seconds}`;
       }
 
@@ -92,7 +87,6 @@ const Record = () => {
         const blob = new Blob(audioChunks, { type: 'audio/wav' });
         const formData = new FormData();
         const dateTimeString = formatDate(new Date().getTime());
-        // dateTimeString = dateTimeString.replace(":", "")
         const fileName = `Audio_${person}_Scene${scene}_${dateTimeString}.wav`;
         formData.append('audio', blob, fileName.replaceAll(':', '-'));
 
@@ -107,22 +101,28 @@ const Record = () => {
         })
         .catch((error) => {
             console.error('Error:', error);
-            alert("Recording saved successfully!")
+            alert("Error saving recording.")
         });
     };
 
     return (
         <div className="App">
+            <p>Now, use the portable recorder and record the background noise. </p>
+            <p>Hold the microphone at your head level and walk around the space, pointing the
+                microphone in various directions.</p>
+            <p>Record at least 20 seconds of audio.</p>
+            <p>Thank you!</p>
+            <Link to={`/${name}`}>Return to Home</Link>
+            {/* <img src= "public\Audio Recording.png" ></img> 
             <p>Hit record, then stop, then save.</p>
             <button id="recordButton" onClick={startRecording} disabled={isRecording}>Record</button>
             <button id="playButton" onClick={playRecording} disabled={isRecording}>Play</button>
             <button id="redoButton" onClick={redoRecording} disabled={isRecording}>Redo</button>
             <button id="saveButton" onClick={saveRecording} disabled={isRecording}>Save</button>
             <button id="stopButton" onClick={stopRecording} disabled={!isRecording}>Stop</button>
-            <div></div>
             {showNext && (
                 <Link to={`/${name}`}>Select Scene</Link>
-            )}
+            )} */}
 
 
         </div>

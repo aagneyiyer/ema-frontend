@@ -5,11 +5,13 @@ import { useParams } from "react-router-dom";
 import names from './names.json';
 
 
+// change questions here!
 const questionList = [
   "Example question #1?", "Example question #2?", 
   "Example question #3?", "Example question #4?"
 ];
 
+// change answer choices here!
 const optionList = [
   "Option 1a", "Option 1b", "Option 1c", "Option 1d", "Option 1e", 
   "Option 2a", "Option 2b", "Option 2c", "Option 2d", "Option 2e", 
@@ -50,7 +52,7 @@ const Survey = () => {
     formData.append(`response_${answers.length}`, person || '')
     formData.append(`response_${answers.length + 1}`, scene || '')
 
-    // Send the responses to the server
+    // send responses to the server
     fetch('https://emaserver.dsjlsdjsakdjsads.online/saveResponses', {
         method: 'POST',
         body: formData
@@ -62,6 +64,7 @@ const Survey = () => {
     });
   }
 
+  // logic to enable questions displaying automatically
   let letters = ['a', 'b', 'c', 'd', 'e'];
   let numOptions = [5, 5, 5, 3]
 
@@ -69,6 +72,7 @@ const Survey = () => {
     <div className="App">
         <form id="survey">
             <ol>
+              {/* more logic to enable questions displaying automatically */}
                 <p>Question {currQuestion + 1}: {questionList[currQuestion]}</p>
                 {letters.slice(0, numOptions[currQuestion]).map((option, index) => (
                     <label key={index}>

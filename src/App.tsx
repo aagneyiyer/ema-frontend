@@ -1,37 +1,38 @@
-import React, { useState } from 'react';
-import { Link, Route, Routes } from "react-router-dom";
-import ProgressBars from "./ProgressBars";
+import React from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
+import ProgressBars from './ProgressBars';
 import './App.css';
-import SceneSelect from "./SceneSelect";
+import SceneSelect from './SceneSelect';
 import Home from './Home';
 import Survey from './Survey';
 import Record from './Record';
 
-const name = "Aagney";
-const routes = [
-  { path: "/scenes/:name", name: "Select", element: <SceneSelect/> },
+// add all new subject's names + codename to names.json
+import namesData from './names.json';
 
-  { path: "/secret-garden", name: "Home", element: <Home name={"secret-garden"}/> },
-  { path: "/enchanted-forest", name: "Home", element: <Home name={"enchanted-forest"}/> },
-  { path: "/hidden-cove", name: "Home", element: <Home name={"hidden-cove"}/> },
-  { path: "/whispering-canyon", name: "Home", element: <Home name={"whispering-canyon"}/> },
-  { path: "/forgotten-temple", name: "Home", element: <Home name={"forgotten-temple"}/> },
-  { path: "/lost-lagoon", name: "Home", element: <Home name={"lost-lagoon"}/> },
-  { path: "/echoing-cavern", name: "Home", element: <Home name={"echoing-cavern"}/> },
-  { path: "/twilight-meadow", name: "Home", element: <Home name={"twilight-meadow"}/> },
-  { path: "/sapphire-citadel", name: "Home", element: <Home name={"sapphire-citadel"}/> },
-  { path: "/mystery-castle", name: "Home", element: <Home name={"mystery-castle"}/> },
- 
-  { path: "/survey/:name/:scene", name: "Survey", element: <Survey/> },
- 
-  { path: "/record/:name/:scene", name: "Record", element: <Record/> }
-]
+// import all codename to name pairs from names.json
+// create routes for each codename
+interface NameEntry {
+  [key: string]: string;
+}
+const nameEntries: NameEntry[] = namesData.names as unknown as NameEntry[];
+const dynamicRoutes = nameEntries.map((entry) => {
+  const sceneName = Object.keys(entry)[0];
+  const personName = entry[sceneName];
+  return { path: `/${sceneName}`, name: personName, element: <Home name={sceneName} /> };
+});
+
+// dynamically create routes for each user to have their own scene/recording page
+const routes = [
+  { path: '/scenes/:name', name: 'Select', element: <SceneSelect /> },
+  ...dynamicRoutes,
+  { path: '/survey/:name/:scene', name: 'Survey', element: <Survey /> },
+  { path: '/record/:name/:scene', name: 'Record', element: <Record /> }
+];
 
 function App() {
   return (
     <div className="App-header">
-
-      {/* define routes */}
       <Routes>
         {routes.map((route) => (
           <Route key={route.name} path={route.path} element={route.element} />
