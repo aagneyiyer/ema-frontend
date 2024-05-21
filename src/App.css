@@ -24,6 +24,10 @@
   color: white;
 }
 
+.scene {
+  margin-top: 60px;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -35,4 +39,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.big-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  min-width: 40px; /* Reduced width */
+  min-height: 20px; /* Reduced height */
+  padding: 3px 10px; /* Reduced padding */
+  background-color: #F3B71B;
+  color: #00030B;
+
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50px; /* Adjusted border radius */
+  box-shadow: 0 5px 7px 0 #000000; /* Adjusted box shadow */
+  
+  font-size: 24px; /* Reduced font size */
+
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.big-button:hover {
+  background-color: #f1c70c;
+}
+
+.progress {
+  margin-bottom: 14px;
+}
+
+.welcome {
+  margin-bottom: 70px;
 }

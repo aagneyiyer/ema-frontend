@@ -72,7 +72,12 @@ const Survey = () => {
     <div className="App">
         <form id="survey">
             <ol>
-              {/* more logic to enable questions displaying automatically */}
+              {/* logic to enable questions displaying automatically */}
+
+              {/* continually update the current question number and use that to index into the question array
+              display the next n answer choices, where n maps to the corresponding number of options for 
+              that question as designated by the numOptions array */}
+
                 <p>Question {currQuestion + 1}: {questionList[currQuestion]}</p>
                 {letters.slice(0, numOptions[currQuestion]).map((option, index) => (
                     <label key={index}>
@@ -88,10 +93,11 @@ const Survey = () => {
                 ))}
                 <br/>
             </ol>
+            {/* only show the 'Next' button to move to recording stage once all questions have been answered */}
             {showNext ? (
-                <button type="button" onClick={handleNext}>Next</button>
+                <button className="big-button"type="button" onClick={handleNext}>Next</button>
                 ) : (
-                <Link onClick={submitSurvey} to={`/record/${name}/${scene}`}>Select Scene</Link>
+                <Link className="big-button" onClick={submitSurvey} to={`/record/${name}/${scene}`}>Next</Link>
             )}
         </form>
     </div>

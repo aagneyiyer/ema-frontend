@@ -24,6 +24,8 @@ function Home( { name }: HomeProps ) {
       try {
         const response = await fetch(`https://emaserver.dsjlsdjsakdjsads.online/getProgress?name=${person}`);
         const data = await response.json();
+        // we receive the data as a json response, and it maps "progress" to a two-value array
+        // with scene 1's progress and scene 2's progress
         if (data.progress) {
           let prog = data["progress"];
           setScene1Progress(prog[0]?.N || 0);
@@ -41,8 +43,8 @@ function Home( { name }: HomeProps ) {
       try {
         const response = await fetch(`https://emaserver.dsjlsdjsakdjsads.online/getSceneNames?name=${person}`);
         const data = await response.json();
-        console.log("data is: ");
-        console.log(data);
+        // we receive the data as a json response, and it maps "sceneList" to a two-value array
+        // with scene 1's name and scene 2's name for that particular user
         if (data.sceneList) {
           let names = data["sceneList"];
           setScene1Name(names[0] || '');
@@ -63,21 +65,21 @@ function Home( { name }: HomeProps ) {
     <div className="App">
       <div className="App-header">
         <h1>AHSLAB: EMA Recording App</h1>
-        <p>Hi there, {person}! Here is your progress:</p>
+        <p className='welcome'>Hi there, {person}! Here is your progress:</p>
         <div>
           Scene 1 ({scene1Name})
         </div>
-        <div>
+        <div className="progress">
           <progress value={scene1Progress} max={5} /> ({scene1Progress} out of 5 done)
         </div>
-        <Link to={`/survey/${name}/1`}>Go to Scene 1</Link>
-        <div>
+        <Link className="big-button" to={`/survey/${name}/1`}>Go to Scene 1</Link>
+        <div className="scene">
           Scene 2 ({scene2Name})
         </div>
-        <div>
+        <div className="progress">
           <progress value={scene2Progress} max={5} /> ({scene2Progress} out of 5 done)
         </div>
-        <Link to={`/survey/${name}/2`}>Go to Scene 2</Link>
+        <Link className="big-button" to={`/survey/${name}/2`}>Go to Scene 2</Link>
       </div>
     </div>
   );
