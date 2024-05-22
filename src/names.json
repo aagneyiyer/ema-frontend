@@ -9,6 +9,16 @@
         {"echoing-cavern": "Khloe"},
         {"twilight-meadow": "Iris"},
         {"sapphire-citadel": "Brianna"},
-        {"mystery-castle": "Bella"}
+        {"mystery-castle": "Bella"},
+        {"test-newperson":"John"},
+        {"test-newperson2" : "Adam"},
+        {"test-newperson3" : "Jamie"}
+    ],
+    "scenes" : [
+        {"John" : ["Park", "Campus"]},
+        {"Adam" : ["Garden", "Street"]},
+        {"Jamie" : ["Streetside", "Cafe"]}
     ]
+    
+
 }

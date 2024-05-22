@@ -13,16 +13,22 @@ function Home( { name }: HomeProps ) {
   const [scene1Name, setScene1Name] = useState('');
   const [scene2Name, setScene2Name] = useState('');
 
-  const personObj = names.names.find(obj => Object.keys(obj)[0] === name);
-  
+  const personObj = names.names.find(obj => Object.keys(obj)[0] === name);  
   const person = personObj ? Object.values(personObj)[0] : 'Unknown';
+
+  const scenesObj = names.scenes.find(obj => Object.keys(obj)[0] === person);
+  const scenes = scenesObj ? Object.values(scenesObj)[0] : [];
+  const scene1 = scenes[0];
+  const scene2 = scenes[1];
+
 
 
   // retrieve each user's progress from server 
   useEffect(() => {
     async function fetchProgress() {
+      
       try {
-        const response = await fetch(`https://emaserver.dsjlsdjsakdjsads.online/getProgress?name=${person}`);
+        const response = await fetch(`https://emaserver.dsjlsdjsakdjsads.online/getProgress?name=${person}&scene1=${scene1}&scene2=${scene2}`);
         const data = await response.json();
         // we receive the data as a json response, and it maps "progress" to a two-value array
         // with scene 1's progress and scene 2's progress
@@ -41,7 +47,7 @@ function Home( { name }: HomeProps ) {
     // retrieve each user's scene names from server
     async function fetchSceneNames() {
       try {
-        const response = await fetch(`https://emaserver.dsjlsdjsakdjsads.online/getSceneNames?name=${person}`);
+        const response = await fetch(`https://emaserver.dsjlsdjsakdjsads.online/getSceneNames?name=${person}&scene1=${scene1}&scene2=${scene2}`);
         const data = await response.json();
         // we receive the data as a json response, and it maps "sceneList" to a two-value array
         // with scene 1's name and scene 2's name for that particular user
@@ -84,5 +90,6 @@ function Home( { name }: HomeProps ) {
     </div>
   );
 }
+
 
 export default Home;
