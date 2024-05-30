@@ -76,16 +76,16 @@ function Home( { name }: HomeProps ) {
           Scene 1 ({scene1Name})
         </div>
         <div className="progress">
-          <progress value={scene1Progress} max={5} /> ({scene1Progress} out of 5 done)
+          <progress value={scene1Progress} max={5} /> ({scene1Progress} / 5)
         </div>
-        <Link className="big-button" to={`/survey/${name}/1`}>Go to Scene 1</Link>
+        <Link className="big-button" to={`/survey/${name}/1`}>Scene 1</Link>
         <div className="scene">
           Scene 2 ({scene2Name})
         </div>
         <div className="progress">
-          <progress value={scene2Progress} max={5} /> ({scene2Progress} out of 5 done)
+          <progress value={scene2Progress} max={5} /> ({scene2Progress} / 5)
         </div>
-        <Link className="big-button" to={`/survey/${name}/2`}>Go to Scene 2</Link>
+        <Link className="big-button" to={`/survey/${name}/2`}>Scene 2</Link>
       </div>
     </div>
   );

@@ -7,16 +7,16 @@ import names from './names.json';
 
 // change questions here!
 const questionList = [
-  "Example question #1?", "Example question #2?", 
-  "Example question #3?", "Example question #4?"
+  "What did your active listening involve? (Select all that apply)", "Overall, how loud were the background environmental sounds?", 
+  "You had to strain to understand the conversation/speech.", "Which program are you using now on your hearing aid?"
 ];
 
 // change answer choices here!
 const optionList = [
-  "Option 1a", "Option 1b", "Option 1c", "Option 1d", "Option 1e", 
-  "Option 2a", "Option 2b", "Option 2c", "Option 2d", "Option 2e", 
-  "Option 3a", "Option 3b", "Option 3c", "Option 3d", "Option 3e", 
-  "Option 4a", "Option 4b", "Option 4c"
+  "Conversation, live", "Conversation, via electronic device", "Speech/music listening, live", "Speech/music listening media", "Environmental sound listening", 
+  "Very loud", "Loud", "Medium", "Soft", "Very soft", 
+  "Strongly agree", "Agree", "Neutral", "Disagree", "Strongly disagree", 
+  "A", "B", "C"
 ];
 
 const Survey = () => {
@@ -78,7 +78,7 @@ const Survey = () => {
               display the next n answer choices, where n maps to the corresponding number of options for 
               that question as designated by the numOptions array */}
 
-                <p>Question {currQuestion + 1}: {questionList[currQuestion]}</p>
+                <p>{currQuestion + 1}. {questionList[currQuestion]}</p>
                 {letters.slice(0, numOptions[currQuestion]).map((option, index) => (
                     <label key={index}>
                     <input 
