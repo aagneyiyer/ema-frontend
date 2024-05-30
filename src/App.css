@@ -76,12 +76,12 @@
 .question {
   margin-bottom: 55px; /* Adjust the value to your preference */
   margin-top: -20px;
-  font-size: 18pt;
+  font-size: 16pt;
 }
 
 .option {
   display: block;
-  font-size: 17pt;
+  font-size: 13pt;
   margin-top: 35px; /* Adjust the value to your preference */
 }
 
@@ -100,5 +100,5 @@
 .next-button {
   flex-grow: 0; /* Allow the button to grow to fill the space */
   margin-left: 40px; /* Adjust the left margin as needed */
-  margin-right: 50px;
+  margin-right: 40px;
 }
