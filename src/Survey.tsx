@@ -3,7 +3,7 @@ import './App.css';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import names from './names.json';
-
+import emaBanner from './ema banner.png';
 
 // change questions here!
 const questionList = [
@@ -70,6 +70,7 @@ const Survey = () => {
 
   return (
     <div className="App">
+     <img src={emaBanner} alt="EMA Banner" className="banner-image" />
         <form id="survey">
             <ol>
               {/* logic to enable questions displaying automatically */}
@@ -78,9 +79,10 @@ const Survey = () => {
               display the next n answer choices, where n maps to the corresponding number of options for 
               that question as designated by the numOptions array */}
 
-                <p>{currQuestion + 1}. {questionList[currQuestion]}</p>
+                {/* <p> {currQuestion + 1}. {questionList[currQuestion]}</p> */}
+                <p className="question">{currQuestion + 1}. {questionList[currQuestion]}</p>
                 {letters.slice(0, numOptions[currQuestion]).map((option, index) => (
-                    <label key={index}>
+                    <label key={index} className="option">
                     <input 
                         type="radio" 
                         name={`question-${currQuestion}`} 
@@ -95,10 +97,15 @@ const Survey = () => {
             </ol>
             {/* only show the 'Next' button to move to recording stage once all questions have been answered */}
             {showNext ? (
-                <button className="big-button"type="button" onClick={handleNext}>Next</button>
-                ) : (
-                <Link className="big-button" onClick={submitSurvey} to={`/record/${name}/${scene}`}>Next</Link>
+                  <div className="button-container">
+                      {currQuestion > 0 && <button className="big-button back-button" type="button" onClick={() => setCurrQuestion(currQuestion - 1)}>Back</button>}
+                      <button className="big-button next-button" type="button" onClick={handleNext}>Next</button>
+                  </div>
+              ) : (
+                  <Link className="big-button" onClick={submitSurvey} to={`/record/${name}/${scene}`}>Next</Link>
             )}
+
+
         </form>
     </div>
   );

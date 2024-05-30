@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 .App {
   text-align: center;
 }
@@ -12,6 +14,8 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+
 
 .App-header {
   background-color: #1E2843;
@@ -68,10 +72,33 @@
   background-color: #f1c70c;
 }
 
-.progress {
-  margin-bottom: 14px;
+/* Add more space between survey items and responses */
+.question {
+  margin-bottom: 55px; /* Adjust the value to your preference */
+  margin-top: -20px;
+  font-size: 18pt;
 }
 
-.welcome {
-  margin-bottom: 70px;
+.option {
+  display: block;
+  font-size: 17pt;
+  margin-top: 35px; /* Adjust the value to your preference */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Adjust the top margin as needed */
+}
+
+.back-button {
+  flex-grow: 0; /* Allow the button to grow to fill the space */
+  margin-right: 40px; /* Adjust the right margin as needed */
+  margin-left: 50px;
+}
+
+.next-button {
+  flex-grow: 0; /* Allow the button to grow to fill the space */
+  margin-left: 40px; /* Adjust the left margin as needed */
+  margin-right: 50px;
 }
