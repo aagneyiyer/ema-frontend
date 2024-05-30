@@ -98,7 +98,9 @@ const Survey = () => {
             {/* only show the 'Next' button to move to recording stage once all questions have been answered */}
             {showNext ? (
                   <div className="button-container">
-                      {currQuestion > 0 && <button className="big-button back-button" type="button" onClick={() => setCurrQuestion(currQuestion - 1)}>Back</button>}
+                      {
+                      currQuestion > 0 && <button className="big-button back-button" type="button" onClick={() => setCurrQuestion(currQuestion - 1)}>Back</button>
+                      }
                       <button className="big-button next-button" type="button" onClick={handleNext}>Next</button>
                   </div>
               ) : (
