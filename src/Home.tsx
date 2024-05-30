@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import SceneSelect from './SceneSelect';
 import names from './names.json';
+import emaBanner from './ema banner.png';
 
 type HomeProps = {
   name: string;
@@ -70,6 +71,7 @@ function Home( { name }: HomeProps ) {
   return (
     <div className="App">
       <div className="App-header">
+        <img src={emaBanner} alt="EMA Banner" className="banner-image" />
         <h1>AHSLAB: EMA Recording App</h1>
         <p className='welcome'>Hi there, {person}! Here is your progress:</p>
         <div>
