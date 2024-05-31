@@ -18,7 +18,6 @@ const Record = () => {
 
 
     useEffect(() => {
-        // Cleanup audio URL on component unmount
         return () => {
             if (audioUrlRef.current) {
                 URL.revokeObjectURL(audioUrlRef.current);
@@ -112,7 +111,7 @@ const Record = () => {
                 microphone in various directions.</p>
             <p>Record at least 20 seconds of audio.</p>
             <p>Thank you!</p>
-            <Link to={`/${name}`}>Return to Home</Link>
+            <Link className="big-button"to={`/${name}`}>Return to Home</Link>
             {/* <img src= "public\Audio Recording.png" ></img> 
             <p>Hit record, then stop, then save.</p>
             <button id="recordButton" onClick={startRecording} disabled={isRecording}>Record</button>

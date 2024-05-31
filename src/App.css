@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 .App {
   text-align: center;
 }
@@ -13,15 +15,22 @@
   }
 }
 
+
+
 .App-header {
-  background-color: #282c34;
+  background-color: #1E2843;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family:'Montserrat', sans-serif;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.scene {
+  margin-top: 60px;
 }
 
 .App-link {
@@ -35,4 +44,61 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.big-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  min-width: 150px; /* Reduced width */
+  min-height: 20px; /* Reduced height */
+  padding: 3px 10px; /* Reduced padding */
+  background-color: #fcd060;
+  color: #00030B;
+
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50px; /* Adjusted border radius */
+  box-shadow: 0 5px 7px 0 #000000; /* Adjusted box shadow */
+  
+  font-size: 30px; /* Reduced font size */
+
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.big-button:hover {
+  background-color: #f1c70c;
+}
+
+/* Add more space between survey items and responses */
+.question {
+  margin-bottom: 55px; /* Adjust the value to your preference */
+  margin-top: -20px;
+  font-size: 16pt;
+}
+
+.option {
+  display: block;
+  font-size: 13pt;
+  margin-top: 35px; /* Adjust the value to your preference */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust the top margin as needed */
+}
+
+.back-button {
+  flex-grow: 0; /* Allow the button to grow to fill the space */
+  margin-right: 40px; /* Adjust the right margin as needed */
+  margin-left: 50px;
+}
+
+.next-button {
+  flex-grow: 0; /* Allow the button to grow to fill the space */
+  margin-left: 40px; /* Adjust the left margin as needed */
+  margin-right: 40px;
 }

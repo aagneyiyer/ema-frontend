@@ -3,20 +3,20 @@ import './App.css';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import names from './names.json';
-
+import emaBanner from './ema banner.png';
 
 // change questions here!
 const questionList = [
-  "Example question #1?", "Example question #2?", 
-  "Example question #3?", "Example question #4?"
+  "What did your active listening involve? (Select all that apply)", "Overall, how loud were the background environmental sounds?", 
+  "You had to strain to understand the conversation/speech.", "Which program are you using now on your hearing aid?"
 ];
 
 // change answer choices here!
 const optionList = [
-  "Option 1a", "Option 1b", "Option 1c", "Option 1d", "Option 1e", 
-  "Option 2a", "Option 2b", "Option 2c", "Option 2d", "Option 2e", 
-  "Option 3a", "Option 3b", "Option 3c", "Option 3d", "Option 3e", 
-  "Option 4a", "Option 4b", "Option 4c"
+  "Conversation, live", "Conversation, via electronic device", "Speech/music listening, live", "Speech/music listening media", "Environmental sound listening", 
+  "Very loud", "Loud", "Medium", "Soft", "Very soft", 
+  "Strongly agree", "Agree", "Neutral", "Disagree", "Strongly disagree", 
+  "A", "B", "C"
 ];
 
 const Survey = () => {
@@ -70,12 +70,19 @@ const Survey = () => {
 
   return (
     <div className="App">
+     <img src={emaBanner} alt="EMA Banner" className="banner-image" />
         <form id="survey">
             <ol>
-              {/* more logic to enable questions displaying automatically */}
-                <p>Question {currQuestion + 1}: {questionList[currQuestion]}</p>
+              {/* logic to enable questions displaying automatically */}
+
+              {/* continually update the current question number and use that to index into the question array
+              display the next n answer choices, where n maps to the corresponding number of options for 
+              that question as designated by the numOptions array */}
+
+                {/* <p> {currQuestion + 1}. {questionList[currQuestion]}</p> */}
+                <p className="question">{currQuestion + 1}. {questionList[currQuestion]}</p>
                 {letters.slice(0, numOptions[currQuestion]).map((option, index) => (
-                    <label key={index}>
+                    <label key={index} className="option">
                     <input 
                         type="radio" 
                         name={`question-${currQuestion}`} 
@@ -88,11 +95,19 @@ const Survey = () => {
                 ))}
                 <br/>
             </ol>
+            {/* only show the 'Next' button to move to recording stage once all questions have been answered */}
             {showNext ? (
-                <button type="button" onClick={handleNext}>Next</button>
-                ) : (
-                <Link onClick={submitSurvey} to={`/record/${name}/${scene}`}>Select Scene</Link>
+                  <div className="button-container">
+                      {
+                      currQuestion > 0 && <button className="big-button back-button" type="button" onClick={() => setCurrQuestion(currQuestion - 1)}>Back</button>
+                      }
+                      <button className="big-button next-button" type="button" onClick={handleNext}>Next</button>
+                  </div>
+              ) : (
+                  <Link className="big-button" onClick={submitSurvey} to={`/record/${name}/${scene}`}>Next</Link>
             )}
+
+
         </form>
     </div>
   );
