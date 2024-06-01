@@ -12,12 +12,14 @@
         {"mystery-castle": "Bella"},
         {"test-newperson":"John"},
         {"test-newperson2" : "Adam"},
-        {"test-newperson3" : "Jamie"}
+        {"test-newperson3" : "Jamie"},
+        {"red-tree" : "Arda"}
     ],
     "scenes" : [
         {"John" : ["Park", "Campus"]},
         {"Adam" : ["Garden", "Street"]},
-        {"Jamie" : ["Streetside", "Cafe"]}
+        {"Jamie" : ["Streetside", "Cafe"]},
+        {"Arda" : ["Roadway", "Kitchen"]}
     ]
     
 

@@ -3,7 +3,7 @@ import './App.css';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import names from './names.json';
-
+import emaBanner from './ema banner.png';
 
 const Record = () => {
     const { name, scene } = useParams();
@@ -106,12 +106,14 @@ const Record = () => {
 
     return (
         <div className="App">
-            <p>Now, use the portable recorder and record the background noise. </p>
-            <p>Hold the microphone at your head level and walk around the space, pointing the
+            <img src={emaBanner} alt="EMA Banner" className='banner-image' />
+            <p className='instruction'>Now, use the portable recorder and record the background noise. Hold the microphone at your head level and walk around the space, pointing the
                 microphone in various directions.</p>
-            <p>Record at least 20 seconds of audio.</p>
-            <p>Thank you!</p>
-            <Link className="big-button"to={`/${name}`}>Return to Home</Link>
+               
+            <p className='instruction'>Record at least 20 seconds of audio.</p>
+
+            <p className='instruction'>Thank you!</p>
+            <Link className="big-button"to={`/${name}`}>Home</Link>
             {/* <img src= "public\Audio Recording.png" ></img> 
             <p>Hit record, then stop, then save.</p>
             <button id="recordButton" onClick={startRecording} disabled={isRecording}>Record</button>

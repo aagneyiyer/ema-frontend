@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SceneSelect from './SceneSelect';
 import names from './names.json';
 import emaBanner from './ema banner.png';
+import './App.css';
 
 type HomeProps = {
   name: string;
@@ -21,8 +22,6 @@ function Home( { name }: HomeProps ) {
   const scenes = scenesObj ? Object.values(scenesObj)[0] : [];
   const scene1 = scenes[0];
   const scene2 = scenes[1];
-
-
 
   // retrieve each user's progress from server 
   useEffect(() => {
@@ -71,18 +70,18 @@ function Home( { name }: HomeProps ) {
   return (
     <div className="App">
       <div className="App-header">
-        <img src={emaBanner} alt="EMA Banner" className="banner-image" />
-        <h1>AHSLAB: EMA Recording App</h1>
+        <img src={emaBanner} alt="EMA Banner" className='banner-image' />
+        <p className='title'>Ecological Momentary Assessment</p>
         <p className='welcome'>Hi there, {person}! Here is your progress:</p>
-        <div>
-          Scene 1 ({scene1Name})
+        <div className="scene">
+          Scene 1: {scene1Name}
         </div>
         <div className="progress">
           <progress value={scene1Progress} max={5} /> ({scene1Progress} / 5)
         </div>
         <Link className="big-button" to={`/survey/${name}/1`}>Scene 1</Link>
         <div className="scene">
-          Scene 2 ({scene2Name})
+          Scene 2: {scene2Name}
         </div>
         <div className="progress">
           <progress value={scene2Progress} max={5} /> ({scene2Progress} / 5)

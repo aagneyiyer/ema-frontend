@@ -5,9 +5,11 @@ import { useParams } from "react-router-dom";
 import names from './names.json';
 import emaBanner from './ema banner.png';
 
+const preTuning = true;
+
 // change questions here!
 const questionList = [
-  "What did your active listening involve? (Select all that apply)", "Overall, how loud were the background environmental sounds?", 
+  "What did your active listening involve?", "Overall, how loud were the background environmental sounds?", 
   "You had to strain to understand the conversation/speech.", "Which program are you using now on your hearing aid?"
 ];
 
@@ -27,7 +29,7 @@ const Survey = () => {
   
   const [currQuestion, setCurrQuestion] = useState(0);
   const [answers, setAnswers] = useState(['', '', '', '']);
-  const [showNext, setShowNext] = useState(true);
+  const [showNext, setShowNext] = useState(false);
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newAnswers = [...answers];
@@ -35,12 +37,26 @@ const Survey = () => {
     setAnswers(newAnswers);
   };
 
+  const handleBack = () => {
+    setCurrQuestion(currQuestion - 1);
+    setShowNext(false);
+  }
+
   const handleNext = () => {
     if (answers[currQuestion] === "") {
         return;
+    }
+    
+    if (preTuning && currQuestion === 1) {
+      setCurrQuestion(currQuestion + 1);
+      setShowNext(true);
+    }
+    else if (!preTuning && currQuestion == 2) {
+      setCurrQuestion(currQuestion + 1);
+      setShowNext(true);
     } else if (currQuestion < questionList.length - 1) {
       setCurrQuestion(currQuestion + 1);
-      setShowNext(currQuestion < questionList.length - 2);
+      setShowNext(false);
     }
   };
 
@@ -90,24 +106,26 @@ const Survey = () => {
                         onChange={handleOptionChange}
                         checked={answers[currQuestion] === option}
                     />
-                    {option.toUpperCase()}. {optionList[currQuestion * 5 + index] + "\n"}<br/>
+                    {optionList[currQuestion * 5 + index] + "\n"}<br/>
                     </label>
                 ))}
                 <br/>
             </ol>
             {/* only show the 'Next' button to move to recording stage once all questions have been answered */}
-            {showNext ? (
-                  <div className="button-container">
-                      {
-                      currQuestion > 0 && <button className="big-button back-button" type="button" onClick={() => setCurrQuestion(currQuestion - 1)}>Back</button>
-                      }
-                      <button className="big-button next-button" type="button" onClick={handleNext}>Next</button>
-                  </div>
+            <div className="button-container">
+              {currQuestion > 0 && (
+                <button className="big-button back-button" type="button" onClick={handleBack}>Back</button>
+              )}
+              {showNext ? (
+                preTuning ? (
+                  <Link className="big-button next-button" onClick={submitSurvey} to={`/record/${name}/${scene}`}>Start Recording</Link>
+                ) : (
+                  <Link className="big-button next-button" onClick={submitSurvey} to={`/${name}`}>Submit</Link>
+                )
               ) : (
-                  <Link className="big-button" onClick={submitSurvey} to={`/record/${name}/${scene}`}>Next</Link>
-            )}
-
-
+                <button className="big-button next-button" type="button" onClick={handleNext}>Next</button>
+              )}
+            </div>
         </form>
     </div>
   );
