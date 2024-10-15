@@ -23,6 +23,9 @@ function Home( { name }: HomeProps ) {
   const scene1 = scenes[0];
   const scene2 = scenes[1];
 
+  const EMAphaseObj = names.EMAphase.find(obj => Object.keys(obj)[0] === person);
+  const EMAphase = EMAphaseObj ? Object.values(EMAphaseObj)[0] : [];
+
   // retrieve each user's progress from server 
   useEffect(() => {
     async function fetchProgress() {
@@ -77,14 +80,14 @@ function Home( { name }: HomeProps ) {
           Scene 1: {scene1Name}
         </div>
         <div className="progress">
-          <progress value={scene1Progress} max={5} /> ({scene1Progress} / 5)
+          <progress value={scene1Progress} max={10} /> ({scene1Progress} / 10)
         </div>
         <Link className="big-button" to={`/survey/${name}/1`}>Scene 1</Link>
         <div className="scene">
           Scene 2: {scene2Name}
         </div>
         <div className="progress">
-          <progress value={scene2Progress} max={5} /> ({scene2Progress} / 5)
+          <progress value={scene2Progress} max={10} /> ({scene2Progress} / 10)
         </div>
         <Link className="big-button" to={`/survey/${name}/2`}>Scene 2</Link>
       </div>

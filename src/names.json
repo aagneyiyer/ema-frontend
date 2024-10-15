@@ -1,26 +1,44 @@
 {
     "names" : [
-        {"secret-garden" : "Bertan"},
+        {"honey-amaro" : "BertanK"},
         {"enchanted-forest" : "Aagney"},
         {"hidden-cove": "Michelle"},
         {"whispering-canyon": "Jason"},
         {"forgotten-temple": "Erik"},
-        {"lost-lagoon": "Yi"},
-        {"echoing-cavern": "Khloe"},
+        {"pi-citadel": "YiShen"},
         {"twilight-meadow": "Iris"},
         {"sapphire-citadel": "Brianna"},
         {"mystery-castle": "Bella"},
         {"test-newperson":"John"},
         {"test-newperson2" : "Adam"},
         {"test-newperson3" : "Jamie"},
-        {"red-tree" : "Arda"}
+        {"red-tree" : "Arda"},
+        {"Mr-America": "Arnold schwartzanager"},
+        {"cali-fornication": "Bralst"},
+        {"ResearchMasterInMaking": "Hailey"}
     ],
+
     "scenes" : [
-        {"John" : ["Park", "Campus"]},
+        {"YiShen" : ["Park", "Campus"]},
+        {"BertanK" : ["Restaurant", "Public Transit"]},
         {"Adam" : ["Garden", "Street"]},
         {"Jamie" : ["Streetside", "Cafe"]},
-        {"Arda" : ["Roadway", "Kitchen"]}
+        {"Arda" : ["Roadway", "Kitchen"]},
+        {"Arnold schwartzanager" : ["gym", "classical concerts"]},
+        {"Bralst" : ["Social", "Car"]},
+        {"Hailey" : ["Social", "Lecture"]}
+    ],
+
+    "EMAphase" : [
+        {"YiShen" : ["pre"]},
+        {"BertanK" : ["post"]},
+        {"Adam" : ["pre"]},
+        {"Jamie" : ["pre"]},
+        {"Arda" : ["post"]},
+        {"Arnold schwartzanager" : ["post"]},
+        {"Brianna" : ["post"]},
+        {"Bralst" : ["pre"]},
+        {"Hailey" : ["pre"]}
     ]
-    
 
 }
