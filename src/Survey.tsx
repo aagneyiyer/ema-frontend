@@ -9,13 +9,13 @@ import emaBanner from './ema banner.png';
 
 // change questions here!
 const questionList = [
-  "What did your listening involve?", "Overall, how loud were the background environmental sounds?", 
-  "You had to strain to understand the conversation/speech.", "Which program are you using now on your hearing aid?"
+  "What are you listening to?", "Overall, how loud are the background environmental sounds?", 
+  "You have to strain to understand what you are trying to listen to.", "Please try all the hearing aid programs using the app, and select the one that best matches your preference now."
 ];
 
 // change answer choices here!
 const optionList = [
-  "Conversation, live (active)", "Speech/music listening, live (passive)", "Speech/music listening media (passive)", "Environmental sound listening (passive)", 
+  "Conversation, live", "Speech / music, live", "Speech / music / TV, media", "Environmental sounds", 
   "Very loud", "Loud", "Medium", "Soft", "Very soft", 
   "Strongly agree", "Agree", "Neutral", "Disagree", "Strongly disagree", 
   "A", "B", "C"
@@ -97,11 +97,48 @@ const Survey = () => {
               that question as designated by the numOptions array */}
 
                 {/* <p> {currQuestion + 1}. {questionList[currQuestion]}</p> */}
-                <p className="question">{currQuestion + 1}. {questionList[currQuestion]}</p>
+                {/*<p className="question"> {currQuestion + 1}. {questionList[currQuestion]}</p> */}
+                <p
+                  className="question"
+                  style={{
+                    maxWidth: currQuestion === 0
+                      ? '90%' 
+                      : currQuestion === 1
+                      ? '80%' 
+                      : currQuestion === 2
+                      ? '80%' 
+                      : '77%', 
+                    marginLeft: currQuestion === 0
+                      ? '0px' 
+                      : currQuestion === 1
+                      ? '18px' 
+                      : currQuestion === 2
+                      ? '20px'
+                      : '30px',
+                  }
+                }
+                >
+                  {currQuestion + 1}. {questionList[currQuestion]}
+                </p>
                 {letters.slice(0, numOptions[currQuestion]).map((option, index) => (
-                    <label key={index} className="option">
+                      <label
+                      key={index}
+                      className="option"
+                      style={{
+                        marginLeft: currQuestion === 0
+                          ? '2px' // Margin for question 1
+                          : currQuestion === 1
+                          ? '115px' // Margin for question 2
+                          : currQuestion === 2
+                          ? '75px' // Margin for question 3
+                          : '157px', // Default or question 4 margin
+                      }}
+                
+                    >
+                    {/*</label><label key={index} className="option">*/}
                     <input 
                         type="radio" 
+                        className="large-radio"
                         name={`question-${currQuestion}`} 
                         value={option} 
                         onChange={handleOptionChange}

@@ -2,7 +2,7 @@
     "names" : [
         {"honey-amaro" : "BertanK"},
         {"enchanted-forest" : "Aagney"},
-        {"hidden-cove": "Michelle"},
+        {"senior-UXdesigner": "Michelle J"},
         {"whispering-canyon": "Jason"},
         {"forgotten-temple": "Erik"},
         {"pi-citadel": "YiShen"},
@@ -15,7 +15,8 @@
         {"red-tree" : "Arda"},
         {"Mr-America": "Arnold schwartzanager"},
         {"cali-fornication": "Bralst"},
-        {"ResearchMasterInMaking": "Hailey"}
+        {"ResearchMasterInMaking": "Hailey"},
+        {"SaintNicholas": "Nicholas"}
     ],
 
     "scenes" : [
@@ -26,19 +27,22 @@
         {"Arda" : ["Roadway", "Kitchen"]},
         {"Arnold schwartzanager" : ["gym", "classical concerts"]},
         {"Bralst" : ["Social", "Car"]},
-        {"Hailey" : ["Social", "Lecture"]}
+        {"Hailey" : ["Social", "Lecture"]},
+        {"Nicholas" : ["SpeechInNoise", "Lecture"]}
     ],
 
     "EMAphase" : [
         {"YiShen" : ["pre"]},
         {"BertanK" : ["post"]},
         {"Adam" : ["pre"]},
+        {"Michelle J" : ["pre"]},
         {"Jamie" : ["pre"]},
         {"Arda" : ["post"]},
         {"Arnold schwartzanager" : ["post"]},
         {"Brianna" : ["post"]},
         {"Bralst" : ["pre"]},
-        {"Hailey" : ["pre"]}
+        {"Hailey" : ["pre"]},
+        {"Nicholas" : ["post"]}
     ]
 
 }

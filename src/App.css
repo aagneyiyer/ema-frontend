@@ -114,23 +114,28 @@
 
 /* Add more space between survey items and responses */
 .question {
-  margin-bottom: 40px; /* Adjust the value to your preference */
-  margin-top: -40px;
+  margin-bottom: 35px; /* Adjust the value to your preference */
+  margin-top: -60px;
   font-size: 16pt;
   text-align: center;
   line-height: 150%;
-  margin-left: 15px;
-  max-width: 85%; /* Ensure the container does not take up the entire width */
+  margin-left: 16px;
+  max-width: 80%; /* Ensure the container does not take up the entire width */
   box-sizing: border-box; /* Include padding in the element's total width and height */
   word-wrap: break-word; /* Ensure long words break to fit within the container */
 }
 
 .option {
   display: block;
-  font-size: 13pt;
+  font-size: 16pt;
   text-align: left;
-  margin-top: 35px; /* Adjust the value to your preference */
-  margin-left: 20px;
+  margin-top: 32px; /* Adjust the value to your preference */
+  margin-left: 50px;
+}
+
+.large-radio {
+  transform: scale(1.7); /* Make the radio button larger */
+  margin-right: 20px;
 }
 
 .button-container {
@@ -151,4 +156,9 @@
   flex-grow: 0; /* Allow the button to grow to fill the space */
   margin-left: 20px; /* Adjust the left margin as needed */
   margin-right: 60px;
+  font-family:'Montserrat', sans-serif;
+}
+
+.button {
+  font-family:'Montserrat', sans-serif;
 }
