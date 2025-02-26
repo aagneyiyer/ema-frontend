@@ -2,47 +2,37 @@
     "names" : [
         {"honey-amaro" : "BertanK"},
         {"enchanted-forest" : "Aagney"},
-        {"senior-UXdesigner": "Michelle J"},
-        {"whispering-canyon": "Jason"},
-        {"forgotten-temple": "Erik"},
         {"pi-citadel": "YiShen"},
-        {"twilight-meadow": "Iris"},
-        {"sapphire-citadel": "Brianna"},
-        {"mystery-castle": "Bella"},
-        {"test-newperson":"John"},
-        {"test-newperson2" : "Adam"},
-        {"test-newperson3" : "Jamie"},
-        {"red-tree" : "Arda"},
-        {"Mr-America": "Arnold schwartzanager"},
-        {"cali-fornication": "Bralst"},
-        {"ResearchMasterInMaking": "Hailey"},
-        {"SaintNicholas": "Nicholas"}
+        {"BINGO-master": "DAN"},
+        {"Chaichai-tea" : "JEAN"},
+        {"Feelthe-Burn" : "Bernie"}
     ],
 
     "scenes" : [
         {"YiShen" : ["Park", "Campus"]},
-        {"BertanK" : ["Restaurant", "Public Transit"]},
-        {"Adam" : ["Garden", "Street"]},
-        {"Jamie" : ["Streetside", "Cafe"]},
-        {"Arda" : ["Roadway", "Kitchen"]},
-        {"Arnold schwartzanager" : ["gym", "classical concerts"]},
-        {"Bralst" : ["Social", "Car"]},
-        {"Hailey" : ["Social", "Lecture"]},
-        {"Nicholas" : ["SpeechInNoise", "Lecture"]}
+        {"BertanK" : ["Restaurant", "Public Transit", "a","d"]},
+        {"Aagney" : ["Resta", "Outsid"]},
+        {"DAN" : ["LIVE conversation", "Media","a","c"]},
+        {"JEAN" : ["Noisey Place", "Soft Speakers","a","b"]},
+        {"Bernie" : ["Media", "Talking in public","c","a"]}
     ],
 
     "EMAphase" : [
         {"YiShen" : ["pre"]},
-        {"BertanK" : ["post"]},
-        {"Adam" : ["pre"]},
-        {"Michelle J" : ["pre"]},
-        {"Jamie" : ["pre"]},
-        {"Arda" : ["post"]},
-        {"Arnold schwartzanager" : ["post"]},
-        {"Brianna" : ["post"]},
-        {"Bralst" : ["pre"]},
-        {"Hailey" : ["pre"]},
-        {"Nicholas" : ["post"]}
+        {"BertanK" : ["pre"]},
+        {"Aagney" : ["pre"]},
+        {"DAN" : ["post"]},
+        {"JEAN" : ["pre"]},
+        {"Bernie" : "post"}
+    ],
+
+    "survey_discount" : [
+        {"YiShen" : [0,0]},
+        {"BertanK" : [6,3]},
+        {"Aagney" : [0,0]},
+        {"DAN" : [10,10]},
+        {"JEAN" : [1,0]},
+        {"Bernie": [14,14]}  
     ]
 
 }

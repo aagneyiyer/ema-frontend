@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import './App.css';
-import { Link } from 'react-router-dom';
-import { useParams } from "react-router-dom";
+// import { Link } from 'react-router-dom';
+import {Link, useParams , useSearchParams} from "react-router-dom";
 import names from './names.json';
 import emaBanner from './ema banner.png';
+
 
 // const preTuning = true;
 
@@ -22,14 +23,35 @@ const optionList = [
 ];
 
 const Survey = () => {
+  const [searchParams] = useSearchParams();
+  // e.g., ?autoAnswer=a or ?autoAnswer=b
+  const autoAnswer = searchParams.get("autoAnswer") || "";
+
   const { name, scene } = useParams();
   const personObj = names.names.find(obj => Object.keys(obj)[0] === name);
   const person = personObj ? Object.values(personObj)[0] : 'Unknown';
   const EMAphaseObj = names.EMAphase.find(obj => Object.keys(obj)[0] === person);
   const EMAphase = EMAphaseObj ? Object.values(EMAphaseObj)[0] : [];
-  const [currQuestion, setCurrQuestion] = useState(0);
   const [answers, setAnswers] = useState(['', '', '', '']);
+
+  useEffect(() => {
+    if (autoAnswer) {
+      setAnswers(prev => {
+        const updated = [...prev];
+        // Pre-fill Question #1 with autoAnswer
+        updated[0] = autoAnswer;
+        return updated;
+      });
+    }
+  }, [autoAnswer]);
+  
+  const [currQuestion, setCurrQuestion] = useState(autoAnswer ? 1 : 0);
+  // Toggling the "Next" -> "Submit/Recording" button
   const [showNext, setShowNext] = useState(false);
+
+  // const [currQuestion, setCurrQuestion] = useState(0);
+
+  // const [showNext, setShowNext] = useState(false);
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newAnswers = [...answers];

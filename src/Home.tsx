@@ -22,9 +22,16 @@ function Home( { name }: HomeProps ) {
   const scenes = scenesObj ? Object.values(scenesObj)[0] : [];
   const scene1 = scenes[0];
   const scene2 = scenes[1];
+  const scene1_a1 = scenes[2];
+  const scene2_a1 = scenes[3];
 
   const EMAphaseObj = names.EMAphase.find(obj => Object.keys(obj)[0] === person);
   const EMAphase = EMAphaseObj ? Object.values(EMAphaseObj)[0] : [];
+
+  const survey_discountObj = names.survey_discount.find(obj => Object.keys(obj)[0] === person);
+  const survey_discount = survey_discountObj ? Object.values(survey_discountObj)[0] : [];
+  const discount_scene1 = survey_discount[0];
+  const discount_scene2 = survey_discount[1];
 
   // retrieve each user's progress from server 
   useEffect(() => {
@@ -76,20 +83,22 @@ function Home( { name }: HomeProps ) {
         <img src={emaBanner} alt="EMA Banner" className='banner-image' />
         <p className='title'>Ecological Momentary Assessment</p>
         <p className='welcome'>Hi there, {person}! Here is your progress:</p>
+        
         <div className="scene">
           Scene 1: {scene1Name}
         </div>
         <div className="progress">
-          <progress value={scene1Progress} max={10} /> ({scene1Progress} / 10)
+          <progress value={scene1Progress- discount_scene1} max={10} /> ({scene1Progress - discount_scene1} / 10)
         </div>
-        <Link className="big-button" to={`/survey/${name}/1`}>Scene 1</Link>
+        
+        <Link className="big-button" to={`/survey/${name}/1?autoAnswer=${scene1_a1}`}  >Scene 1</Link>
         <div className="scene">
           Scene 2: {scene2Name}
         </div>
         <div className="progress">
-          <progress value={scene2Progress} max={10} /> ({scene2Progress} / 10)
+          <progress value={scene2Progress- discount_scene2} max={10} /> ({scene2Progress - discount_scene2} / 10)
         </div>
-        <Link className="big-button" to={`/survey/${name}/2`}>Scene 2</Link>
+        <Link className="big-button" to={`/survey/${name}/2?autoAnswer=${scene2_a1}`}  >Scene 2</Link>
       </div>
     </div>
   );
