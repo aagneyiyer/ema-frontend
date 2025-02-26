@@ -179,7 +179,8 @@ const Survey = () => {
               )}
               {showNext ? (
                 (EMAphase == "pre") ? (
-                  <Link className="big-button next-button" onClick={submitSurvey} to={`/record/${name}/${scene}`}>Start Recording</Link>
+                  <Link className="big-button next-button" onClick={submitSurvey} to={`/record/${name}/${scene}?autoAnswer=${autoAnswer}`} >Start Recording</Link>
+                  // <Link className="big-button next-button" onClick={submitSurvey} to={`/record/${name}/${scene}`}>Start Recording</Link>
                 ) : (
                   <Link className="big-button next-button" onClick={submitSurvey} to={`/${name}`}>Submit</Link>
                 )

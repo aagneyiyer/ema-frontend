@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
-import { Link } from 'react-router-dom';
-import { useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import names from './names.json';
 import emaBanner from './ema banner.png';
 
 const Record = () => {
     const { name, scene } = useParams();
+    // 1) Read the ?autoAnswer= from the query params
+    const [searchParams] = useSearchParams();
+    const autoAnswer = searchParams.get("autoAnswer") || "";
+
     const [audioChunks, setAudioChunks] = useState<Blob[]>([]);
     const [showNext, setShowNext] = useState(false);
     const [isRecording, setIsRecording] = useState(false);
@@ -107,12 +110,17 @@ const Record = () => {
     return (
         <div className="App">
             <img src={emaBanner} alt="EMA Banner" className='banner-image' />
-            <p className='instruction'>Now, use the portable recorder and record the background noise. Hold the microphone at your head level and walk around the space, pointing the
-                microphone in various directions.</p>
+            {/* <p className='instruction'>Now, use the portable recorder and record the background noise. Hold the microphone at your head level and walk around the space, pointing the
+                microphone in various directions.</p> */}
+            <img
+                src={`/intro_${autoAnswer}.png`} 
+                alt={`Intro ${autoAnswer}`}
+                className="instruction-image"
+            />
                
-            <p className='instruction'>Record at least 20 seconds of audio.</p>
+            {/* <p className='instruction'>Record at least 20 seconds of audio.</p>
 
-            <p className='instruction'>Thank you!</p>
+            <p className='instruction'>Thank you!</p> */}
             <Link className="big-button"to={`/${name}`}>Home</Link>
             {/* <img src= "public\Audio Recording.png" ></img> 
             <p>Hit record, then stop, then save.</p>
