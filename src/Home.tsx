@@ -85,7 +85,7 @@ function Home( { name }: HomeProps ) {
         <p className='welcome'>Hi there, {person}! Here is your progress:</p>
         
         <div className="scene">
-          Scene 1: {scene1Name}
+          1: {scene1Name}
         </div>
         <div className="progress">
           <progress value={scene1Progress- discount_scene1} max={10} /> ({scene1Progress - discount_scene1} / 10)
@@ -93,7 +93,7 @@ function Home( { name }: HomeProps ) {
         
         <Link className="big-button" to={`/survey/${name}/1?autoAnswer=${scene1_a1}`}  >Scene 1</Link>
         <div className="scene">
-          Scene 2: {scene2Name}
+          2: {scene2Name}
         </div>
         <div className="progress">
           <progress value={scene2Progress- discount_scene2} max={10} /> ({scene2Progress - discount_scene2} / 10)
